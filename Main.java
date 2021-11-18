@@ -22,7 +22,6 @@ public class Main {
     }
 
     public void printPattern() {
-		
 		// Taking input from user
 		System.out.println("Please enter the maximum number of stars: ");
 		int max_number = sc.nextInt();
@@ -36,7 +35,7 @@ public class Main {
 			do{
 				System.out.print("* ");
 				j++;
-			}while(j <= max_number - i);
+			}while(j < max_number - i);
 			
 			System.out.println();
 			i++;
@@ -45,8 +44,31 @@ public class Main {
     }
         
 	public void checkPrimeNumber() {
-		// TODO: implement primeNumberChecker
-		System.out.println("Not yet implemented");
+		// Erastothenes Sieve 
+		
+		
+		// Taking input from the user
+		System.out.println("Please enter a number: ");
+		int checkNum = sc.nextInt();
+		
+		// Check if the number is 2 or 3, if so, a prime
+		if ( checkNum == 2 || checkNum == 3) {
+			System.out.println("Its a prime");
+		}
+		// Check if number is a multiple of 2 or 3, if so, not a prime
+		if ( checkNum % 2 == 0 || checkNum % 3 == 0) {
+			System.out.println("Its not a prime");
+		}
+		// Check if number is a multiple of 6k(+-)1 lesser than sqrt(number), if so, not a prime 
+		int i = 5;
+		while ( i * i <= checkNum) {
+			if (checkNum % i == 0 || checkNum % (i+2) == 0) {
+				System.out.println("not a prime");
+			}
+			i += 6;
+		}
+		// If nothing else, is prime
+			System.out.println("It is Prime");
     }
 	
 	public void printFibonacciSeries() {
@@ -118,4 +140,3 @@ public class Main {
 	sc.close();
 	}
 }
-
